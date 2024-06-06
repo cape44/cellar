@@ -57,7 +57,7 @@ function TicketRender({ currentID, currentPrivilege }) {
           />
           <button type="submit">Create user</button>
         </form>
-        <div clas="transactions">
+        <div class="transactions">
           <button onClick={getAndSetAllTasks}>Get Tasks</button>
         </div>
         <p className="smile"> {taskDisplayMsg} </p>

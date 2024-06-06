@@ -18,6 +18,7 @@ function LoginRender({
   const [internalID, setInternalID] = useState("");
   const [truePassword, setTruePassword] = useState("");
   const [triedPassword, setTriedPassword] = useState("");
+  const [allNames, setAllNames] = useState("");
 
   //get_all_tasks_as_string
 
@@ -51,6 +52,14 @@ function LoginRender({
 
   async function setCPrivilege() {
     changePrivilege(await invoke("c_get_user_privilege", { id: internalID }));
+  }
+
+  async function getAllNames() {
+    if (currentPrivilege == "MANAGER") {
+      setAllNames(await invoke("get_all_users_name", {}));
+    } else {
+      setAllNames("You do not have the privilege to view all users");
+    }
   }
 
   async function setDisplayAfterCreatedUser() {
@@ -128,7 +137,9 @@ function LoginRender({
         </select>
         <button type="submit">Create user</button>
       </form>
+      <button onClick={getAllNames}>Show all users</button>
       <p> {displayMsg} </p>
+      <p> {allNames} </p>
     </div>
   );
 }

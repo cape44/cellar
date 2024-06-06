@@ -8,6 +8,7 @@ use crate::db::schema::users::dsl::users;
 use chrono::prelude::*;
 use chrono::{DateTime, Duration, NaiveDateTime};
 use diesel::prelude::*;
+use serde_json::value;
 
 pub fn get_user(id: i32) -> User {
     let connection = &mut establish_connection();
@@ -92,6 +93,7 @@ pub fn get_all_task_as_string() -> String {
         str += &x.user_id.to_string();
         str += " task id: ";
         str += &x.id.to_string();
+        str += " || ";
     }
 
     return str;
@@ -152,11 +154,11 @@ pub fn get_weekly_transactions() -> String {
             str += &x.date;
             str += " credit number: ";
             str += &x.credit_number;
-            str += "/";
+            str += " || ";
         }
-        str += " Total payments fee: $";
-        str += &total_cost.to_string();
     }
+    str += " Total payments fee: $";
+    str += &total_cost.to_string();
     if str == "" {
         str = "No payments found".to_string();
     }
@@ -185,11 +187,11 @@ pub fn get_monthly_transactions() -> String {
             str += &x.date;
             str += " credit number: ";
             str += &x.credit_number;
-            str += "/";
-            str += " Total payments fee: $";
-            str += &total_cost.to_string();
+            str += " || ";
         }
     }
+    str += " Total payments fee: $";
+    str += &total_cost.to_string();
     if str == "" {
         str = "No payments found".to_string();
     }
