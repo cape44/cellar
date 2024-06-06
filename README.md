@@ -2,7 +2,7 @@
 
 HSC Software Design and Development Major Work 2024 that was built in a couple days (I love procrastination)
 
-Terribly basic web app that adds and retrieves fields from an Sqlite database using the ORM Diesel.
+Basic web app that adds and retrieves fields from an Sqlite database using the ORM Diesel.
 
 Inspired as a business ticketing system
 
