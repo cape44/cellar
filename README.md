@@ -1,4 +1,4 @@
-# cellar - Ben Quin SDD Major Work
+# cellar - SDD Major Work
 
 HSC Software Design and Development Major Work 2024 that was built in a couple days (I love procrastination)
 
